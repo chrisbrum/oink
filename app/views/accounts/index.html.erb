@@ -1,0 +1,22 @@
+<h1>Accounts</h1>
+
+<table>
+  <thead>
+    <tr>
+			<th>ID</th>
+      <th>Account Type</th>
+      <th>Nickname</th>
+      <th>Company</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @accounts.each do |account| %>
+      <tr>
+				<td><%= account.id %></td>
+        <td><%= account.account_type %></td>
+        <td><%= account.nickname %></td>
+        <td><%= account.company %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
