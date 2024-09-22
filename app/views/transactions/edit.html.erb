@@ -1,0 +1,27 @@
+<h1>Edit Transaction #<%= @transaction.id %></h1>
+
+<%= form_with model: @transaction, local: true do |f| %>
+  <div>
+    <%= f.label :date, "Transaction Date" %><br>
+    <%= f.date_field :date, value: @transaction.date %>
+  </div>
+
+  <div>
+    <%= f.label :transaction_type, "Transaction Type" %><br>
+    <%= f.text_field :transaction_type, value: @transaction.transaction_type %>
+  </div>
+
+  <div>
+    <%= f.label :description, "Description" %><br>
+    <%= f.text_area :description, value: @transaction.description %>
+  </div>
+
+  <div>
+    <%= f.label :amount, "Amount" %><br>
+    <%= f.number_field :amount, value: @transaction.amount, step: 0.01 %>
+  </div>
+
+  <div>
+    <%= f.submit "Update Transaction" %>
+  </div>
+<% end %>

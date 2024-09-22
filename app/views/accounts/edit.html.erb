@@ -1,0 +1,22 @@
+<h1>Edit Account #<%= @account.nickname %></h1>
+
+<%= form_with model: @account, local: true do |f| %>
+  <div>
+    <%= f.label :account_type, "Account Type" %><br>
+    <%= f.text_field :account_type, value: @account.account_type %>
+  </div>
+
+  <div>
+    <%= f.label :nickname, "Nickname" %><br>
+    <%= f.text_field :nickname, value: @account.nickname %>
+  </div>
+
+  <div>
+    <%= f.label :company, "Company" %><br>
+    <%= f.text_field :company, value: @account.company %>
+  </div>
+
+  <div>
+    <%= f.submit "Update Account" %>
+  </div>
+<% end %>
