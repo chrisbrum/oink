@@ -3,6 +3,8 @@ require 'faker'
 User.destroy_all
 Transaction.destroy_all
 Account.destroy_all
+Budget.destroy_all
+BudgetCategory.destroy_all
 
 # Create users
 users = [
@@ -55,6 +57,25 @@ TRANSACTIONS_TYPES = ["deposit", "withdrawal", "transfer", "payment"]
   )
 end
 
-puts "2 users created!"
-puts "300 transactions created!"
-puts "5 accounts created!"
+budgets = []
+users.each do |user|
+  budgets << Budget.create!(name: "My Budget", user_id: user.id)
+end
+
+budgets.each do |budget|
+  BudgetCategory.create!(name: "Rent", allotted_amount: 80_000, budget_id: budget.id)
+  BudgetCategory.create!(name: "Utilities", allotted_amount: 22_500, budget_id: budget.id)
+  BudgetCategory.create!(name: "Car Payment", allotted_amount: 41_500, budget_id: budget.id)
+  BudgetCategory.create!(name: "Insurance", allotted_amount: 16_500, budget_id: budget.id)
+  BudgetCategory.create!(name: "Phone Bill", allotted_amount: 4_600, budget_id: budget.id)
+  BudgetCategory.create!(name: "Netflix", allotted_amount: 1_000, budget_id: budget.id)
+  BudgetCategory.create!(name: "Eating Out", allotted_amount: 15_000, budget_id: budget.id)
+  BudgetCategory.create!(name: "Groceries", allotted_amount: 40_000, budget_id: budget.id)
+  BudgetCategory.create!(name: "Transporatation", allotted_amount: 6_500, budget_id: budget.id)
+end
+
+puts "Users created!"
+puts "Transactions created!"
+puts "Accounts created!"
+puts "Budgets created!"
+puts "BudgetCategories created!"

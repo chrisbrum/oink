@@ -1,0 +1,25 @@
+<h1>Budget: <%= @budget.name %></h1>
+
+<h2>Categories:</h2>
+<table>
+  <thead>
+    <tr>
+			<th>ID</th>
+      <th>Name</th>
+      <th>Allotted Amount</th>
+      <th>Current Amount</th>
+      <th>Created At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @budget_categories.each do |category| %>
+      <tr>
+				<td><%= category.id %></td>
+        <td><%= category.name %></td>
+        <td><%= number_to_currency(category.allotted_amount) %></td>
+        <td><%= number_to_currency(category.current_amount) %></td>
+        <td><%= category.created_at.strftime("%B %d, %Y") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
