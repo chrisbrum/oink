@@ -1,0 +1,23 @@
+<h1>Budget: <%= @budget.name %></h1>
+
+<h2>Categories: <%= @budget_category.name %></h2>
+<table>
+  <thead>
+    <tr>
+			<th>ID</th>
+      <th>Name</th>
+      <th>Allotted Amount</th>
+      <th>Current Amount</th>
+      <th>Created At</th>
+    </tr>
+  </thead>
+  <tbody>
+		<tr>
+			<td><%= @budget_category.id %></td>
+			<td><%= @budget_category.name %></td>
+			<td><%= number_to_currency(@budget_category.allotted_amount) %></td>
+			<td><%= number_to_currency(@budget_category.current_amount) %></td>
+			<td><%= @budget_category.created_at.strftime("%B %d, %Y") %></td>
+		</tr>
+  </tbody>
+</table>

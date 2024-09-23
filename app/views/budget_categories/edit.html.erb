@@ -1,0 +1,20 @@
+<h1>Edit Budget Category: <%= @budget_category.name %></h1>
+
+<%= form_for [@budget, @budget_category] do |f| %>
+  <div>
+    <%= f.label :name, "Category Name" %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :allotted_amount, "Allotted Amount" %>
+    <%= f.number_field :allotted_amount %>
+  </div>
+
+  <div>
+    <%= f.label :current_amount, "Current Amount" %>
+    <%= f.number_field :current_amount %>
+  </div>
+
+  <%= f.submit "Save Changes" %>
+<% end %>

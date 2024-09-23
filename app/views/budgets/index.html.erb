@@ -1,0 +1,19 @@
+<h1> Budgets</h1>
+
+<table>
+  <thead>
+    <tr>
+			<th>ID</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @budgets.each do |account| %>
+      <tr>
+				<td><%= account.id %></td>
+        <td><%= account.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
