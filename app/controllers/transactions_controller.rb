@@ -2,14 +2,14 @@ class TransactionsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @transactions = Transaction.all
+    @transactions = current_user.transactions
   end
 
   def show
-    @transaction = Transaction.find(params[:id])
+    @transaction = current_user.transactions.find(params[:id])
   end
 
   def edit
-    @transaction = Transaction.find(params[:id])
+    @transaction = current_user.transactions.find(params[:id])
   end
 end
