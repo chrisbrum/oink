@@ -1,20 +1,20 @@
-<h1>Edit Budget Category: <%= @budget_category.name %></h1>
+<h1>Edit Budget: <%= @budget.name %></h1>
 
-<%= form_for [@budget, @budget_category] do |f| %>
-  <div>
-    <%= f.label :name, "Category Name" %>
-    <%= f.text_field :name %>
-  </div>
+<%= form_for @budget do |f| %>
+  <%= f.label :name, "Budget Name" %>
+  <%= f.text_field :name %>
 
-  <div>
-    <%= f.label :allotted_amount, "Allotted Amount" %>
-    <%= f.number_field :allotted_amount %>
-  </div>
-
-  <div>
-    <%= f.label :current_amount, "Current Amount" %>
-    <%= f.number_field :current_amount %>
-  </div>
+  <h2>Edit Budget Categories:</h2>
+    <div>
+      <%= fields_for "budget_category", @budget_category do |bc| %>
+        <%= bc.label :name, "Category Name" %>
+        <%= bc.text_field :name %>
+        <%= bc.label :allotted_amount, "Allotted Amount" %>
+        <%= bc.number_field :allotted_amount %>
+        <%= bc.label :current_amount, "Current Amount" %>
+        <%= bc.number_field :current_amount %>
+      <% end %>
+    </div>
 
   <%= f.submit "Save Changes" %>
 <% end %>

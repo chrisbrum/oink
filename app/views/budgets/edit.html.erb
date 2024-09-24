@@ -1,22 +1,12 @@
-<h1>Edit Budget: <%= @budget.name %></h1>
+<h1>Edit Budget #<%= @budget.id %></h1>
 
-<%= form_for @budget do |f| %>
-  <%= f.label :name, "Budget Name" %>
-  <%= f.text_field :name %>
+<%= form_with model: @budget, local: true do |f| %>
+  <div>
+    <%= f.label :name, "Budget Name" %><br>
+    <%= f.text_field :name, value: @budget.name %>
+  </div>
 
-  <h2>Edit Budget Categories:</h2>
-  <% @budget_categories.each do |category| %>
-    <div>
-      <%= fields_for "budget_categories[]", category do |bc| %>
-        <%= bc.label :name, "Category Name" %>
-        <%= bc.text_field :name %>
-        <%= bc.label :allotted_amount, "Allotted Amount" %>
-        <%= bc.number_field :allotted_amount %>
-        <%= bc.label :current_amount, "Current Amount" %>
-        <%= bc.number_field :current_amount %>
-      <% end %>
-    </div>
-  <% end %>
-
-  <%= f.submit "Save Changes" %>
+  <div>
+    <%= f.submit "Update Transaction" %>
+  </div>
 <% end %>

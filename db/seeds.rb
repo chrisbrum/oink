@@ -63,15 +63,15 @@ users.each do |user|
 end
 
 budgets.each do |budget|
-  BudgetCategory.create!(name: "Rent", allotted_amount: 80_000, budget_id: budget.id)
-  BudgetCategory.create!(name: "Utilities", allotted_amount: 22_500, budget_id: budget.id)
-  BudgetCategory.create!(name: "Car Payment", allotted_amount: 41_500, budget_id: budget.id)
-  BudgetCategory.create!(name: "Insurance", allotted_amount: 16_500, budget_id: budget.id)
-  BudgetCategory.create!(name: "Phone Bill", allotted_amount: 4_600, budget_id: budget.id)
-  BudgetCategory.create!(name: "Netflix", allotted_amount: 1_000, budget_id: budget.id)
-  BudgetCategory.create!(name: "Eating Out", allotted_amount: 15_000, budget_id: budget.id)
-  BudgetCategory.create!(name: "Groceries", allotted_amount: 40_000, budget_id: budget.id)
-  BudgetCategory.create!(name: "Transporatation", allotted_amount: 6_500, budget_id: budget.id)
+  BudgetCategory.create!(name: "Rent", allotted_amount: 8000, budget_id: budget.id)
+  BudgetCategory.create!(name: "Utilities", allotted_amount: 225, budget_id: budget.id)
+  BudgetCategory.create!(name: "Car Payment", allotted_amount: 415, budget_id: budget.id)
+  BudgetCategory.create!(name: "Insurance", allotted_amount: 165, budget_id: budget.id)
+  BudgetCategory.create!(name: "Phone Bill", allotted_amount: 46, budget_id: budget.id)
+  BudgetCategory.create!(name: "Netflix", allotted_amount: 10, budget_id: budget.id)
+  BudgetCategory.create!(name: "Eating Out", allotted_amount: 150, budget_id: budget.id)
+  BudgetCategory.create!(name: "Groceries", allotted_amount: 400, budget_id: budget.id)
+  BudgetCategory.create!(name: "Transporatation", allotted_amount: 65, budget_id: budget.id)
 end
 
 puts "Users created!"
