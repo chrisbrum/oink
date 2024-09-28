@@ -5,19 +5,35 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+DE+Grund:wght@100..400&display=swap" rel="stylesheet">
   </head>
 
-  <body>
-    <div id="navigation">
-      <h1>oink</h1>
-      <div id="navigation-items"></div>
+  <body class="bg-gray-950 text-gray-50">
+    <div class="flex justify-between text-rose-600 hover:text-rose-500 playwrite-de-grund-font-fourhundred text-2xl p-6">
+      <%= link_to 'oink', root_path %>
+      <div>
+        <% if user_signed_in? %>
+          <%= button_to 'sign out', destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= button_to 'sign in', new_user_session_path %>
+        <% end %>
+      </div>
     </div>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-        
+    <div class="flex justify-center">
+      <% if notice.present? %>
+        <p class="text-green-500 border border-green-500 rounded-full px-6 py-2"><%= notice %></p>
+      <% end %>
+      <% if alert.present? %>
+        <p class="text-orange-500 border border-orange-500 rounded-full px-6 py-2"><%= alert %></p>
+      <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>
