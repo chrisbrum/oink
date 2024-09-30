@@ -1,19 +1,26 @@
-<h1>Budgets</h1>
+<div class="flex justify-center mt-20">
+  <div class="p-8 rounded-lg shadow-lg w-full max-w-md">
+    <h2 class="playwrite-de-grund-font-fourhundred text-rose-600 text-3xl font-semibold text-center mb-6">Budgets</h2>
 
-<table>
-  <thead>
-    <tr>
-			<th>ID</th>
-      <th>Name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @budgets.each do |account| %>
-      <tr>
-				<td><%= account.id %></td>
-        <td><%= account.name %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+    <table class="min-w-full border-collapse border border-gray-300 rounded-md shadow-sm">
+      <thead>
+        <tr class="bg-rose-600 text-white">
+          <th class="py-2 px-4 text-sm font-semibold text-center">Budget ID</th>
+          <th class="py-2 px-4 text-sm font-semibold text-center">Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @budgets.each_with_index do |budget, index| %>
+          <tr class="<%= index.even? ? 'bg-gray-50' : 'bg-white' %> hover:bg-gray-100 transition duration-300">
+            <td class="py-3 px-4 text-gray-950 text-center border-t border-gray-300">
+              <%= link_to budget.id, budget_path(budget), class: "text-rose-600 hover:underline" %>
+            </td>
+            <td class="py-3 px-4 text-gray-950 text-center border-t border-gray-300">
+              <%= link_to budget.name, budget_path(budget), class: "text-rose-600 hover:underline" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
