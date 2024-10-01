@@ -1,0 +1,13 @@
+<form action="/submit" method="post">
+    <label for="options" hidden>Budgets:</label>
+    <select id="options" name="option">
+      <% options = ['Option 1', 'Option 2', 'Option 3'] %>
+      <% options.each do |option| %>
+        <option value="<%= option.downcase.tr(' ', '_') %>">
+					<%= option %>
+				</option>
+      <% end %>
+    </select>
+    
+    <button type="submit">Submit</button>
+  </form>

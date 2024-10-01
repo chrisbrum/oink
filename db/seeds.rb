@@ -21,9 +21,9 @@ users = [
 ]
 
 # Account types and data
-ACCOUNT_TYPES = ["bank-checking", "bank-savings", "credit-card", "credit-union"]
-NICKNAMES = ["Personal Checking", "Personal Saving", "Amazon CC", "Vacation Savings", "Joint Checking"]
-COMPANIES = ["Charles Schwab", "Charles Schwab", "Chase", "Rivermark Credit Union", "Charles Schwab"]
+ACCOUNT_TYPES = %w[bank-checking bank-savings credit-card credit-union].freeze
+NICKNAMES = ['Personal Checking', 'Personal Saving', 'Amazon CC', 'Vacation Savings', 'Joint Checking'].freeze
+COMPANIES = ['Charles Schwab', 'Charles Schwab', 'Chase', 'Rivermark Credit Union', 'Charles Schwab'].freeze
 
 accounts = []
 5.times do |idx|
@@ -44,7 +44,7 @@ end
 end
 
 # Transaction types
-TRANSACTIONS_TYPES = ["deposit", "withdrawal", "transfer", "payment"]
+TRANSACTIONS_TYPES = %w[deposit withdrawal transfer payment].freeze
 
 # Create 300 transactions, some associated with accounts, some not
 500.times do
@@ -59,23 +59,35 @@ end
 
 budgets = []
 users.each do |user|
-  budgets << Budget.create!(name: "My Budget", user_id: user.id)
+  budgets << Budget.create!(name: 'My Budget', user_id: user.id)
+
+  next unless user.email == 'chris@mailinator.com'
+
+  # Creates joint budget
+  budgets << Budget.create!(name: 'Joint Budget', user_id: user.id)
 end
 
 budgets.each do |budget|
-  BudgetCategory.create!(name: "Rent", allotted_amount: 8000, budget_id: budget.id)
-  BudgetCategory.create!(name: "Utilities", allotted_amount: 225, budget_id: budget.id)
-  BudgetCategory.create!(name: "Car Payment", allotted_amount: 415, budget_id: budget.id)
-  BudgetCategory.create!(name: "Insurance", allotted_amount: 165, budget_id: budget.id)
-  BudgetCategory.create!(name: "Phone Bill", allotted_amount: 46, budget_id: budget.id)
-  BudgetCategory.create!(name: "Netflix", allotted_amount: 10, budget_id: budget.id)
-  BudgetCategory.create!(name: "Eating Out", allotted_amount: 150, budget_id: budget.id)
-  BudgetCategory.create!(name: "Groceries", allotted_amount: 400, budget_id: budget.id)
-  BudgetCategory.create!(name: "Transporatation", allotted_amount: 65, budget_id: budget.id)
+  BudgetCategory.create!(name: 'Rent', allotted_amount: 8000, budget_id: budget.id)
+  BudgetCategory.create!(name: 'Utilities', allotted_amount: 225, budget_id: budget.id)
+  BudgetCategory.create!(name: 'Car Payment', allotted_amount: 415, budget_id: budget.id)
+  BudgetCategory.create!(name: 'Insurance', allotted_amount: 165, budget_id: budget.id)
+  BudgetCategory.create!(name: 'Phone Bill', allotted_amount: 46, budget_id: budget.id)
+  BudgetCategory.create!(name: 'Netflix', allotted_amount: 10, budget_id: budget.id)
+  BudgetCategory.create!(name: 'Eating Out', allotted_amount: 150, budget_id: budget.id)
+  BudgetCategory.create!(name: 'Groceries', allotted_amount: 400, budget_id: budget.id)
+  BudgetCategory.create!(name: 'Transporatation', allotted_amount: 65, budget_id: budget.id)
+
+  next unless budget.user.email == 'chris@mailinator.com'
+
+  # Creates joint budget categories
+  BudgetCategory.create!(name: 'Rent', allotted_amount: 8000, budget_id: budget.id)
+  BudgetCategory.create!(name: 'Utilities', allotted_amount: 225, budget_id: budget.id)
+  BudgetCategory.create!(name: 'Car Payment', allotted_amount: 415, budget_id: budget.id)
 end
 
-puts "Users created!"
-puts "Transactions created!"
-puts "Accounts created!"
-puts "Budgets created!"
-puts "BudgetCategories created!"
+puts 'Users created!'
+puts 'Transactions created!'
+puts 'Accounts created!'
+puts 'Budgets created!'
+puts 'BudgetCategories created!'

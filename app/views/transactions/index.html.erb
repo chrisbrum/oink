@@ -1,24 +1,28 @@
-<h1>Transactions</h1>
+<div class="flex justify-center mt-20">
+  <div class="p-8 rounded-lg shadow-lg w-full max-w-5xl">
+    <h1 class="playwrite-de-grund-font-fourhundred text-rose-600 text-3xl font-semibold text-center mb-6">Transactions</h1>
 
-<table>
-  <thead>
-    <tr>
-			<th>ID</th>
-      <th>Date</th>
-      <th>Transaction Type</th>
-      <th>Description</th>
-      <th>Amount</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @transactions.each do |transaction| %>
-      <tr>
-				<td><%= transaction.id %></td>
-        <td><%= transaction.date %></td>
-        <td><%= transaction.transaction_type %></td>
-        <td><%= transaction.description %></td>
-        <td><%= number_to_currency(transaction.amount) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <table class="min-w-full border-collapse border border-gray-300 rounded-md shadow-sm">
+      <thead>
+        <tr class="bg-rose-600 text-white">
+          <th class="py-2 px-4 text-sm font-semibold text-center">ID</th>
+          <th class="py-2 px-4 text-sm font-semibold text-center">Date</th>
+          <th class="py-2 px-4 text-sm font-semibold text-center">Transaction Type</th>
+          <th class="py-2 px-4 text-sm font-semibold text-center">Description</th>
+          <th class="py-2 px-4 text-sm font-semibold text-center">Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @transactions.each_with_index do |transaction, index| %>
+          <tr class="<%= index.even? ? 'bg-slate-900' : 'bg-transparent' %> hover:bg-slate-700 transition duration-300">
+            <td class="py-3 px-4 text-white text-center border-t border-gray-300"><%= transaction.id %></td>
+            <td class="py-3 px-4 text-white text-center border-t border-gray-300"><%= transaction.date %></td>
+            <td class="py-3 px-4 text-white text-center border-t border-gray-300"><%= transaction.transaction_type %></td>
+            <td class="py-3 px-4 text-white text-center border-t border-gray-300"><%= transaction.description %></td>
+            <td class="py-3 px-4 text-white text-center border-t border-gray-300"><%= number_to_currency(transaction.amount) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

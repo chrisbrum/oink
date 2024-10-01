@@ -1,25 +1,30 @@
-<h1>Budget: <%= @budget.name %></h1>
+<div class="flex justify-center mt-20">
+  <div class="p-8 rounded-lg shadow-lg w-full max-w-3xl">
+    <h1 class="playwrite-de-grund-font-fourhundred text-rose-600 text-3xl font-semibold text-center mb-6">Budget: <%= @budget.name %></h1>
 
-<h2>Categories:</h2>
-<table>
-  <thead>
-    <tr>
-			<th>ID</th>
-      <th>Name</th>
-      <th>Allotted Amount</th>
-      <th>Current Amount</th>
-      <th>Created At</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @budget_categories.each do |category| %>
-      <tr>
-				<td><%= category.id %></td>
-        <td><%= category.name %></td>
-        <td><%= number_to_currency(category.allotted_amount) %></td>
-        <td><%= number_to_currency(category.current_amount) %></td>
-        <td><%= category.created_at.strftime("%B %d, %Y") %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <h2 class="playwrite-de-grund-font-fourhundred text-rose-600 text-xl font-semibold text-center mb-4">Categories:</h2>
+
+    <table class="min-w-full border-collapse border border-gray-300 rounded-md shadow-sm">
+      <thead>
+        <tr class="bg-rose-600 text-white">
+          <th class="py-2 px-4 text-sm font-semibold text-center">Name</th>
+          <th class="py-2 px-4 text-sm font-semibold text-center">Allotted Amount</th>
+          <th class="py-2 px-4 text-sm font-semibold text-center">Current Amount</th>
+          <th class="py-2 px-4 text-sm font-semibold text-center">Created At</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @budget_categories.each_with_index do |category, index| %>
+          <tr class="<%= index.even? ? 'bg-gray-900' : 'bg-transparent' %> hover:bg-slate-700 transition duration-300">
+            <td class="py-3 px-4 text-white text-center border-t border-gray-300"><%= category.name %></td>
+            <td class="py-3 px-4 text-white text-center border-t border-gray-300"><%= number_to_currency(category.allotted_amount) %></td>
+            <td class="py-3 px-4 text-white text-center border-t border-gray-300"><%= number_to_currency(category.current_amount) %></td>
+            <td class="py-3 px-4 text-white text-center border-t border-gray-300"><%= category.created_at.strftime("%B %d, %Y") %></td>
+            <td class="py-3 px-4 text-white text-center border-t border-gray-300">edit</td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

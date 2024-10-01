@@ -11,12 +11,12 @@
       </thead>
       <tbody>
         <% @budgets.each_with_index do |budget, index| %>
-          <tr class="<%= index.even? ? 'bg-gray-900' : 'bg-transparent' %> hover:bg-slate-700 transition duration-300">
+          <tr class="<%= index.even? ? 'bg-slate-900' : 'transparent' %> hover:bg-gray-100 transition duration-300">
             <td class="py-3 px-4 text-gray-950 text-center border-t border-gray-300">
-              <%= link_to budget.id, budget_path(budget), class: "text-rose-600 hover:underline" %>
+              <%= link_to budget.id, budget, class: "text-rose-600 hover:underline" %>
             </td>
             <td class="py-3 px-4 text-gray-950 text-center border-t border-gray-300">
-              <%= link_to budget.name, budget_path(budget), class: "text-rose-600 hover:underline" %>
+              <%= link_to budget.name, budget, class: "text-rose-600 hover:underline" %>
             </td>
           </tr>
         <% end %>
