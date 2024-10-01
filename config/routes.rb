@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources 'accounts'
 
   resources 'budgets' do
-    resources 'budget_categories'
+    resources :budget_categories, path: 'categories', as: 'categories'
   end
 
   get 'up' => 'rails/health#show', as: :rails_health_check
