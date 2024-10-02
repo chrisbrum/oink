@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BudgetsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_budget, only: %i[index show edit update]

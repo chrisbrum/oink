@@ -1,0 +1,21 @@
+{
+    "rules": {
+        "800cc1e9-2520-47e0-bdbf-6e01d5930956": {
+            "name": "Retrieving Budgets for a User in BudgetsController\n",
+            "rule": {
+                "type": "regex",
+                "regex": "BudgetsController.*index",
+                "ignoreCase": false
+            },
+            "actions": {
+                "ide": {
+                    "doc_id": "ssl0re3y",
+                    "message": "When a developer is retrieving budgets for a user in the BudgetsController, I want them to find the documentation explaining how to use the index action and the show action."
+                }
+            }
+        }
+    },
+    "view_order": [
+        "800cc1e9-2520-47e0-bdbf-6e01d5930956"
+    ]
+}

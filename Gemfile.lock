@@ -300,6 +300,7 @@ PLATFORMS
   aarch64-linux
   arm-linux
   arm64-darwin-22
+  arm64-darwin-23
   x86-linux
   x86_64-darwin
   x86_64-linux
@@ -329,4 +330,4 @@ RUBY VERSION
    ruby 3.2.2p53
 
 BUNDLED WITH
-   2.5.15
+   2.5.20
